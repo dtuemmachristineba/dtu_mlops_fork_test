@@ -1,4 +1,9 @@
 from loguru import logger
+import sys
+logger.add("my_log.log", level="DEBUG", rotation="100 MB")
+
+logger.remove()  # Remove the default logger
+logger.add(sys.stdout, level="WARNING")  # Add a new logger with WARNING level
 
 logger.debug("Used for debugging your code.")
 logger.info("Informative messages from your code.")

@@ -1,0 +1,55 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "CPython 3.11.11",
+    "heartbeatAt": "2025-01-13T12:55:55.559240",
+    "startedAt": "2025-01-13T12:55:52.972623",
+    "docker": null,
+    "args": [
+        "service",
+        "--debug",
+        "--port-filename",
+        "/var/folders/nb/nv1kr6t57_58g0nkxz8s38rm0000gn/T/tmpebuj2q1t/port-98244.txt",
+        "--pid",
+        "98244"
+    ],
+    "state": "running",
+    "program": "/Users/emmachristineberggreinandersen/Desktop/ML_ops/dtu_mlops_fork_test/s4_debugging_and_logging/exercise_files/train.py",
+    "codePathLocal": "train.py",
+    "codePath": "s4_debugging_and_logging/exercise_files/train.py",
+    "git": {
+        "remote": "https://github.com/dtuemmachristineba/dtu_mlops_fork_test.git",
+        "commit": "b846a5fe79d1b44843b9813d60f19a232d803493"
+    },
+    "email": "s204605@student.dtu.dk",
+    "root": "/Users/emmachristineberggreinandersen/Desktop/ML_ops/dtu_mlops_fork_test",
+    "host": "macbookpro.students.clients.local",
+    "username": null,
+    "executable": "/Users/emmachristineberggreinandersen/anaconda3/envs/my_environment/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2400,
+        "min": 2400,
+        "max": 2400
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2400,
+            "min": 2400,
+            "max": 2400
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 250685575168,
+            "used": 11199156224
+        },
+        "/System/Volumes/Data": {
+            "total": 250685575168,
+            "used": 143574618112
+        }
+    },
+    "memory": {
+        "total": 8589934592
+    }
+}
