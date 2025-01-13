@@ -17,6 +17,7 @@ mypy
 # s3 - reproducibility
 hydra-core
 # s4 - debugging and logging
+loguru
 pytorch-lightning
 wandb
 snakeviz
