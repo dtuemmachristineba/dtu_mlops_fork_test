@@ -1,10 +1,10 @@
-import matplotlib.pyplot as plt
 import torch
 import typer
-import wandb
 from data import corrupt_mnist
 from model import MyAwesomeModel
 from sklearn.metrics import RocCurveDisplay, accuracy_score, f1_score, precision_score, recall_score
+
+import wandb
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
@@ -78,7 +78,7 @@ def train(lr: float = 0.001, batch_size: int = 32, epochs: int = 5) -> None:
     # first we save the model to a file then log it as an artifact
     torch.save(model.state_dict(), "model.pth")
     artifact = wandb.Artifact(
-        name="corrupt_mnist", 
+        name="corrupt_mnist",
         type="model",
         description="A model trained to classify corrupt MNIST images",
         metadata={"accuracy": final_accuracy, "precision": final_precision, "recall": final_recall, "f1": final_f1},

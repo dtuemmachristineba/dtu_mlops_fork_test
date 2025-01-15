@@ -1,5 +1,7 @@
-from loguru import logger
 import sys
+
+from loguru import logger
+
 logger.add("my_log.log", level="DEBUG", rotation="100 MB")
 
 logger.remove()  # Remove the default logger

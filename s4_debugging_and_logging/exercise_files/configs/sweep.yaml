@@ -1,7 +1,7 @@
 program: train.py
 name: sweepdemo
 project: corrupt_mnist
-entity: s204605-danmarks-tekniske-universitet-dtu 
+entity: s204605-danmarks-tekniske-universitet-dtu
 method: random
 metric:
   goal: minimize
@@ -10,7 +10,7 @@ parameters:
   lr:
     min: 0.0001
     max: 0.1
-    distribution: log_uniform_values 
+    distribution: log_uniform_values
   batch-size:
     values: [16, 32, 64]
   epochs:

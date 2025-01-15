@@ -1,14 +1,14 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
 import torch
-from unittest.mock import patch, MagicMock
 from model import MyAwesomeModel
 from train import train
-from data import corrupt_mnist
 
 
 # Test if the training function runs without errors
 @patch("wandb.init")  # Mock wandb.init
-@patch("wandb.log")   # Mock wandb.log
+@patch("wandb.log")  # Mock wandb.log
 @patch("wandb.Artifact")  # Mock wandb.Artifact
 @patch("torch.save")  # Mock torch.save
 def test_training(mock_save, mock_artifact, mock_log, mock_init):

@@ -5,6 +5,7 @@ A simple implementation of Gaussian MLP Encoder and Decoder trained on MNIST
 
 import os
 
+import hydra
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
@@ -14,11 +15,17 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import MNIST
 from torchvision.utils import save_image
 
-import hydra
 
 @hydra.main(config_path=".", config_name="config.yaml")
 def main(cfg):
-    print(cfg.hyperparameters.batch_size, cfg.hyperparameters.x_dim, cfg.hyperparameters.hidden_dim, cfg.hyperparameters.latent_dim, cfg.hyperparameters.lr, cfg.hyperparameters.epochs)
+    print(
+        cfg.hyperparameters.batch_size,
+        cfg.hyperparameters.x_dim,
+        cfg.hyperparameters.hidden_dim,
+        cfg.hyperparameters.latent_dim,
+        cfg.hyperparameters.lr,
+        cfg.hyperparameters.epochs,
+    )
 
     # Model Hyperparameters
     dataset_path = "~/datasets"
@@ -33,7 +40,6 @@ def main(cfg):
 
     print("x_dim", x_dim, "hidden_dim", hidden_dim, "latent_dim", cfg.hyperparameters.latent_dim)
 
-
     # Data loading
     mnist_transform = transforms.Compose([transforms.ToTensor()])
 
@@ -45,10 +51,9 @@ def main(cfg):
 
     encoder = Encoder(input_dim=x_dim, hidden_dim=hidden_dim, latent_dim=cfg.hyperparameters.latent_dim)
     decoder = Decoder(latent_dim=cfg.hyperparameters.latent_dim, hidden_dim=hidden_dim, output_dim=x_dim)
-    
+
     # model = Model(Encoder=encoder, Decoder=decoder).to(DEVICE)
     model = Model(encoder, decoder).to(DEVICE)
-
 
     def loss_function(x, x_hat, mean, log_var):
         """Elbo loss function."""
@@ -56,9 +61,7 @@ def main(cfg):
         kld = -0.5 * torch.sum(1 + log_var - mean.pow(2) - log_var.exp())
         return reproduction_loss + kld
 
-
     optimizer = Adam(model.parameters(), lr=cfg.hyperparameters.lr)
-
 
     print("Start training VAE...")
     model.train()
@@ -105,6 +108,7 @@ def main(cfg):
         generated_images = decoder(noise)
 
     save_image(generated_images.view(batch_size, 1, 28, 28), "generated_sample.png")
+
 
 if __name__ == "__main__":
     main()

@@ -7,4 +7,3 @@ hyperparameters:
   lr: 0.001
   epochs: 10
   seed: 123
-
