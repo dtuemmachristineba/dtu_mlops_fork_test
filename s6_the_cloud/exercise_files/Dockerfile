@@ -11,3 +11,5 @@ WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
 
 ENTRYPOINT ["python", "-u", "main.py"]
+
+# change in the code to test cloud build of docker file
