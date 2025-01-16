@@ -5,7 +5,7 @@ steps:
     'build',
     '.',
     '-t',
-    'europe-west1-docker.pkg.dev/dtumlops-447912/emma-mlops-registry/sklearn',
+    'europe-west1-docker.pkg.dev/dtumlops-447912/emma-mlops-registry/sklearn', # small change
     '-f',
     'Dockerfile'
   ]
